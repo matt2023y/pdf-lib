@@ -24,8 +24,9 @@ class CustomFontEmbedder {
     fontData: Uint8Array,
     customName?: string,
     fontFeatures?: TypeFeatures,
+    postscriptName? string,
   ) {
-    const font = await fontkit.create(fontData);
+    const font = await fontkit.create(fontData, postscriptName);
     return new CustomFontEmbedder(font, fontData, customName, fontFeatures);
   }
 
